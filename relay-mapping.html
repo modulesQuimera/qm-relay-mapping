@@ -1,0 +1,290 @@
+<script type="text/javascript">
+    RED.nodes.registerType('relay-mapping', {
+        category: 'config',
+        defaults: {
+            name: {
+                value: ""
+            },
+            mappingType: { value: "1" },
+            slot:{ value:"", required:true},
+            
+            NA1: {value: ""},
+            valueNA1: {value: "0"},
+            NA2: {value: ""},
+            valueNA2: {value: "1"},
+            NA3: {value: ""},
+            valueNA3: {value: "2"},
+            NA4: {value: ""},
+            valueNA4: {value: "3"},
+            NA5: {value: ""},
+            valueNA5: {value: "4"},
+            NA6: {value: ""},
+            valueNA6: {value: "5"},
+            NA7: {value: ""},
+            valueNA7: {value: "6"},
+            NA8: {value: ""},
+            valueNA8: {value: "7"},
+
+            NF9: {value: ""},
+            valueNF9: {value: "0"},
+            NF10: {value: ""},
+            valueNF10: {value: "1"},
+            NF11: {value: ""},
+            valueNF11: {value: "2"},
+            NF12: {value: ""},
+            valueNF12: {value: "3"},
+            NF13: {value: ""},
+            valueNF13: {value: "4"},
+            NF14: {value: ""},
+            valueNF14: {value: "5"},
+            NF15: {value: ""},
+            valueNF15: {value: "6"},
+            NF16: {value: ""},
+            valueNF16: {value: "7"},
+
+            CM1: {value:""},
+            CM2: {value:""},
+            CM3: {value:""},
+            CM4: {value:""},
+            CM5: {value:""},
+            CM6: {value:""},
+            CM7: {value:""},
+            CM8: {value:""},
+            CM9: {value:""},
+            CM10: {value:""},
+            CM11: {value:""},
+            CM12: {value:""},
+            CM13: {value:""},
+            CM14: {value:""},
+            CM15: {value:""},
+            CM16: {value:""},
+
+        },
+        label: function() {
+            return this.name || ""
+        },
+        oneditresize: function() {
+            $("#red-ui-editor-config-scope").val($("#red-ui-editor-config-scope option:first").val());
+        },
+        oneditprepare: function() { 
+            $("#node-config-input-mappingType").on("change", function(e) {
+                var compare = $(this).val();
+                if (compare === "1") { $(".MAP1").show(); $(".MAP2").hide();}
+                if (compare === "2") { $(".MAP2").show(); $(".MAP1").hide();}
+            });
+            $("#SLOT").text(`INSTANCE ${this.slot != undefined ? this.slot : "" } Relay mapping`);
+        }
+    });
+</script>
+
+<style>
+    .columm{ display: flex !important; flex-direction: column !important; }
+    .hr-full{ width: 100% !important; }
+    .divA { width: 49% !important; float: left !important; }
+    .divB { width: 49% !important; float: left !important; }
+    .label-relayA{ width: 38% !important; margin-right: 15px !important; }
+    .label-relayB{ width: 38% !important; margin-right: 15px !important; }
+    .input-relayA{ width: 53% !important; }
+    .input-relayB{ width: 53% !important; }
+</style>
+
+<script type="text/html" data-template-name="relay-mapping">
+
+    <div class="form-row columm">
+        <label  for="node-config-input-name"><i class="fa fa-tag"></i> Mapping Name</label>
+        <input type="text" id="node-config-input-name" style="width:80%;">
+    </div>
+    <div class="form-row columm">
+        <label  for="node-config-input-slot"><i class="fa fa-sliders"></i> Instance</label>
+        <input min="1" max="9" type="number" id="node-config-input-slot" style="width:20%;">
+    </div>
+    <hr class="hr-full">
+    <div class="form-row columm">
+        <label  for="node-config-input-mappingType"><i class="fa fa-sliders"></i> Mapping type</label>
+        <select id="node-config-input-mappingType">
+            <option value="1" selected>NA</option> 
+            <option value="2">NF</option> 
+          </select>
+    </div>
+    <h2 id="SLOT"></h2>
+    <h3>Conector XG4A-3434</h3>
+    <div class="MAP1">
+        <div class="divA">
+            <div class="form-row">
+                <div style="float: left; text-align: center; margin-bottom: 28px; width: max-content;">
+                    <span> Jig interface </span>
+                </div>
+                <div style="text-align: center;">
+                    <span> Board Interface <br> (TP or Connector) </span>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA1 - PIN 34</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA1">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA2 - PIN 32</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA2">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA3 - PIN 30</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA3">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA4 - PIN 28</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA4">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA5 - PIN 26</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA5">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA6 - PIN 24</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA6">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-tags"></i >NA7 - PIN 22</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA7">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NA8 - PIN 20</label>
+                <input class="input-relayA" type="text" id="node-config-input-NA8">
+            </div>
+        </div>
+        <div class="divB">
+            <div class="form-row">
+                <div style="float: left; text-align: center; margin-bottom: 28px; width: max-content;">
+                    <span> Jig interface </span>
+                </div>
+                <div style="text-align: center;">
+                    <span> Board Interface <br> (TP or Connector) </span>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM1 - PIN 33</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM1">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM2 - PIN 31</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM2">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM3 - PIN 29</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM3">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM4 - PIN 27</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM4">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM5 - PIN 25</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM5">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM6 - PIN 23</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM6">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB" ><i class="fa fa-microchip"></i> CM7 - PIN 21</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM7">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB" ><i class="fa fa-microchip"></i> CM8 - PIN 19</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM8">
+            </div>
+        </div>
+    </div>
+    <div class="MAP2" style="display:none;">
+        <div class="divA">
+            <div class="form-row">
+                <div style="float: left; text-align: center; margin-bottom: 28px; width: max-content;">
+                    <span> Jig interface </span>
+                </div>
+                <div style="text-align: center;">
+                    <span> Board Interface <br> (TP or Connector) </span>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"> <i class="fa fa-microchip"></i> NF9 - PIN 16</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF9">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF10 - PIN 14</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF10">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF11 - PIN 12</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF11" >
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF12 - PIN 10</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF12">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF13 - PIN 8</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF13">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF14 - PIN 6</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF14">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF15 - PIN 4</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF15">
+            </div>
+            <div class="form-row">
+                <label class="label-relayA"><i class="fa fa-microchip"></i> NF16 - PIN 2</label>
+                <input class="input-relayA" type="text" id="node-config-input-NF16">
+            </div>
+        </div>
+        <div class="divB">
+            <div class="form-row">
+                <div style="float: left; text-align: center; margin-bottom: 28px; width: max-content;">
+                    <span> Jig interface </span>
+                </div>
+                <div style="text-align: center;">
+                    <span> Board Interface <br> (TP or Connector) </span>
+                </div>
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM9 - PIN 15</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM9">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM10 - PIN 13</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM10">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM11 - PIN 11</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM11" >
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM12 - PIN 9</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM12">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM13 - PIN 7</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM13">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM14 - PIN 5</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM14">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM15 - PIN 3</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM15">
+            </div>
+            <div class="form-row">
+                <label class="label-relayB"><i class="fa fa-microchip"></i> CM16 - PIN 1</label>
+                <input class="input-relayB" type="text" id="node-config-input-CM16">
+            </div>
+        </div>
+        
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="relay-mapping">
+    <p>working on it...</p>
+</script>
+

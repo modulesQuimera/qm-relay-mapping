@@ -1,0 +1,25 @@
+{
+  "name": "qm-relay-mapping",
+  "version": "1.0.0",
+  "description": "Mapping of Relay",
+  "main": "relay-mapping.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modulesQuimera/qm-relay-mapping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modulesQuimera/qm-relay-mapping/issues"
+  },
+  "homepage": "https://github.com/modulesQuimera/qm-relay-mapping#readme",
+  "node-red": {
+		"nodes": {
+			"relay-mapping": "relay-mapping.js"
+		}
+	}
+}
