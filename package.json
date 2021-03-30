@@ -1,6 +1,6 @@
 {
   "name": "qm-relay-mapping",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mapping of Relay",
   "main": "relay-mapping.js",
   "scripts": {
